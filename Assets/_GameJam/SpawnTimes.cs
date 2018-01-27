@@ -50,6 +50,7 @@ public class SpawnTimes : MonoBehaviour {
 
     public void FinishWrite(string filename){
         Debug.Log("Written");
+        inputOrder += "DONE!";
         string path = "Assets/" + filename + ".txt";
         StreamWriter writer = new StreamWriter(path, false);
         writer.WriteLine(inputOrder);

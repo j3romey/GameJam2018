@@ -5,25 +5,28 @@ using UnityEngine;
 public class Drop : MonoBehaviour
 {
 
-    public AnimationCurve animationCurve;
-    public float t;
+    public AnimationCurve animationCurveY;
+    public AnimationCurve animationCurveZ;
+    public float t ;
 
-    Vector3 start, end;
+    float yPosition, zPosition;
+
+    public float zStart, zEnd, yStart, yEnd;
 
     //public Vector3 displace;
 
     // Use this for initialization
     void Start()
     {
-        start = transform.position;
-        end = transform.position + new Vector3(0, -20, 0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.position += displace * Time.deltaTime;
-        transform.position = Vector3.Lerp(start, end, animationCurve.Evaluate(t));
+        yPosition = Mathf.LerpUnclamped(yStart, yEnd, animationCurveY.Evaluate(t));
+        zPosition = Mathf.LerpUnclamped(zStart, zEnd, animationCurveZ.Evaluate(t));
+        transform.position = new Vector3(transform.position.x, yPosition, zPosition);
         t += Time.deltaTime;
     }
 }

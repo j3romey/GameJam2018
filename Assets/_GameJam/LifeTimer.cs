@@ -20,4 +20,5 @@ public class LifeTimer : MonoBehaviour
         if (life <= 0) { if (spawnOnDeath) Instantiate(spawnOnDeath, transform.position, transform.rotation); Destroy(gameObject); }
         life -= Time.deltaTime;
     }
+
 }

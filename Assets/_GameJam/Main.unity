@@ -418,13 +418,14 @@ GameObject:
   - component: {fileID: 621521844}
   - component: {fileID: 621521841}
   - component: {fileID: 621521842}
+  - component: {fileID: 621521843}
   m_Layer: 0
   m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &621521839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keycodes: 640000006600000067000000680000006a0000006b000000
   spawnTimes: {fileID: 621521841}
+  press: {fileID: 621521843}
   audio: {fileID: 621521842}
   timeToHit: 4
   filename: _GameJam/music
@@ -550,6 +552,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &621521843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621521838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b01555a28d134d96ad32bc658ddcf19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expectedLife: 1
 --- !u!114 &621521844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,7 +602,7 @@ MonoBehaviour:
     location: {x: 0, y: 0, z: 0}
   dropSpeed: 15
   space: 2
-  height: 20
+  height: 100
 --- !u!1 &661790842
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keycodes: 640000006600000067000000680000006a0000006b000000
   audio: {fileID: 881334027}
-  filename: music
+  filename: music2
   spawnTimes: {fileID: 881334022}
   laneSet: {fileID: 881334023}
   space: 2
@@ -1190,7 +1204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1355916901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -95,25 +95,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161dfd5971955e2489ff65217e933e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationCurve:
+  animationCurveY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.011330366
+      value: -0.0030046105
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1.5041945
+      value: 5
+      inSlope: 0.24587594
+      outSlope: 0.24587594
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 4.5
+      value: 1
+      inSlope: -0.7908084
+      outSlope: Infinity
+      tangentMode: 97
+    - serializedVersion: 2
+      time: 5.00631
+      value: 1
+      inSlope: Infinity
+      outSlope: 0
+      tangentMode: 7
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  animationCurveZ:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0.25853506
-      outSlope: 0.25853506
+      inSlope: 0.28328612
+      outSlope: 0.28328612
       tangentMode: 0
     - serializedVersion: 2
-      time: 4
+      time: 5
       value: 1
-      inSlope: 0.24248959
-      outSlope: 0.24248959
+      inSlope: 0.10449757
+      outSlope: 0.10449757
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 6
+      value: 1.3
+      inSlope: 0.012187526
+      outSlope: 0.012187526
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   t: 0
+  zStart: 500
+  zEnd: 0
+  yStart: 0
+  yEnd: 5
 --- !u!114 &114777668215954246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,4 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ca9d2816ba2854d9150e30f4c17b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  spawnOnDeath: {fileID: 0}
+  life: 6

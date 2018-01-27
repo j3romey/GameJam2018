@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     public List<KeyCode> keycodes;
 
     public SpawnTimes spawnTimes;
+    public Press press;
 
     public AudioSource audio;
 
@@ -34,10 +35,19 @@ public class Game : MonoBehaviour
     void Update()
     {
 
-        if(counter < spawnTimes.timeList.Count && Time.time >= spawnTimes.timeList[counter]){
+        if(counter < spawnTimes.timeList.Count && Time.time+ timeToHit >= spawnTimes.timeList[counter] ){
    
             laneSet.lanes[spawnTimes.laneList[counter]].Spawn();
             counter++;
+        }
+
+        for (int i = 0; i < keycodes.Count; i++)
+        {
+            if (Input.GetKeyDown(keycodes[i]))
+            {
+                GameObject cube = laneSet.lanes[i].Closest(0f);
+                press.Check(cube);
+            }
         }
 
     }
