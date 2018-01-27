@@ -5,7 +5,11 @@ using UnityEngine;
 public class Drop : MonoBehaviour
 {
 
-    public Vector3 displace;
+    public AnimationCurve animationCurve;
+
+    Vector3 start, end;
+    float t;
+    //public Vector3 displace;
 
     // Use this for initialization
     void Start()
@@ -16,6 +20,6 @@ public class Drop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += displace * Time.deltaTime;
+        //transform.position += displace * Time.deltaTime;
     }
 }
