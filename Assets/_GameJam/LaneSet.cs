@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaneSet : MonoBehaviour {
+public class LaneSet : MonoBehaviour
+{
 
     public List<Lane> lanes;
     public int dropSpeed;
     public float space;
     float curSpace;
-    public float height;
+    public float height, back = 400;
 
     [System.Serializable]
     public class Lane
@@ -24,8 +25,9 @@ public class LaneSet : MonoBehaviour {
             cubes = new List<GameObject>();
         }
 
-        public void Spawn(){
-            cubes.Add(Instantiate(dropPrefab, location, Quaternion.identity));  
+        public void Spawn()
+        {
+            cubes.Add(Instantiate(dropPrefab, location, Quaternion.identity));
         }
 
         public void Update()
@@ -33,9 +35,11 @@ public class LaneSet : MonoBehaviour {
             cubes.RemoveAll(x => x == null);
         }
 
-        public GameObject Closest(float z){
+        public GameObject Closest(float z)
+        {
 
-            if(cubes.Count > 0){
+            if (cubes.Count > 0)
+            {
                 GameObject currentCube = cubes[0];
 
                 float currentDif = 1000f;
@@ -49,7 +53,9 @@ public class LaneSet : MonoBehaviour {
                 }
 
                 return currentCube;
-            }else{
+            }
+            else
+            {
                 return null;
             }
         }
@@ -61,18 +67,22 @@ public class LaneSet : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         float f = space * -lanes.Count + space;
 
-        for (int i = 0; i < lanes.Count; i++){
-            lanes[i].location = (Vector3.right * f + Vector3.up * height + Vector3.forward * 300);
+        for (int i = 0; i < lanes.Count; i++)
+        {
+            lanes[i].location = (Vector3.right * f + Vector3.up * height + Vector3.forward * back);
             f += 2 * space;
         }
     }
 
-    void Update(){
-        foreach(var lane in lanes){
+    void Update()
+    {
+        foreach (var lane in lanes)
+        {
             lane.Update();
         }
     }

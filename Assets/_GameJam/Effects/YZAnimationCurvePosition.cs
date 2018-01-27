@@ -20,7 +20,7 @@ public class YZAnimationCurvePosition : MonoBehaviour
     {
         var p = transform.position;
         p.y = Mathf.LerpUnclamped(by, ey, y.Evaluate(t));
-        p.z = Mathf.LerpUnclamped(bz, ez, z.Evaluate(t));
+        p.z = Mathf.Lerp(bz, ez, z.Evaluate(t));
         transform.position = p;
         t += Time.deltaTime;
     }
