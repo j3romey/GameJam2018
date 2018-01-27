@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Press : MonoBehaviour {
 
     public float expectedLife;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,22 +20,27 @@ public class Press : MonoBehaviour {
 
     public void Check(GameObject cube){
         if(cube != null){
-            float time = cube.GetComponent<LifeTimer>().life;
-            float difference = Mathf.Abs(time - expectedLife);
+            LifeTimer lifeTime = cube.GetComponent<LifeTimer>();
+            float difference = Mathf.Abs(lifeTime.life - expectedLife);
 
-            if (difference <= 0.5 && difference >= 0)
+            
+
+            if (difference <= 0.15 && difference >= 0)
             {
-                Debug.Log("Perfect:" + difference);
-                Destroy(cube);
+                Debug.Log("Perfect: " + difference);
+             
+                lifeTime.Hit(LifeTimer.State.Perfect);
+
             }
-            else if (difference <= 1 && difference > 0.5)
+            else if (difference <= 0.3 && difference > 0.15 )
             {
                 Debug.Log("OK:" + difference);
-                Destroy(cube);
-            }
-            else
-            {
-                Debug.Log("Too Far:" + difference);
+                lifeTime.Hit(LifeTimer.State.Ok);
+            }else if(difference >= 0.75){
+                Debug.Log("Too Far: " + difference);
+            }else{
+                Debug.Log("Miss: " + difference);
+                lifeTime.Hit(LifeTimer.State.Miss);
             }
         }
     }
