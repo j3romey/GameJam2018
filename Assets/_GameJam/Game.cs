@@ -9,6 +9,10 @@ public class Game : MonoBehaviour
 
     public SpawnTimes spawnTimes;
 
+    public AudioSource audio;
+
+    public float timeToHit;
+
     public string filename;
     string inputOrder;
 
@@ -23,6 +27,7 @@ public class Game : MonoBehaviour
     {
         inputOrder = "";
         spawnTimes.Read(filename);
+        audio.PlayDelayed(timeToHit);
     }
 
     // Update is called once per frame

@@ -16,17 +16,22 @@ public class Create : MonoBehaviour
 
     public float space;
 
+    public float Timer;
 
     // Use this for initialization
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        audio.Play();
+        audio.PlayDelayed(4.0f);
+        Timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Timer += Time.deltaTime;
+
+        Debug.Log(Timer);
 
         for (int i = 0; i < keycodes.Count; i++)
         {
