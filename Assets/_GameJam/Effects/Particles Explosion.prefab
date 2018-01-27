@@ -82,7 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ca9d2816ba2854d9150e30f4c17b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textTest: {fileID: 0}
+  type: 1
   spawnOnDeath: {fileID: 0}
+  spawnOnHit: {fileID: 0}
   life: 1
 --- !u!198 &198026092433099852
 ParticleSystem:

@@ -219,8 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ca9d2816ba2854d9150e30f4c17b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textTest: {fileID: 0}
+  type: 0
   spawnOnDeath: {fileID: 1968800198444890, guid: ca2f892c3c997df43b36736a074c926d,
     type: 2}
+  spawnOnHit: {fileID: 1968800198444890, guid: ca2f892c3c997df43b36736a074c926d, type: 2}
   life: 6
 --- !u!114 &114278166292450996
 MonoBehaviour:

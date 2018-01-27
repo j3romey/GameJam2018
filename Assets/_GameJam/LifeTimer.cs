@@ -10,8 +10,14 @@ public class LifeTimer : MonoBehaviour
         Perfect, Good, Ok, Miss
     };
 
+    public enum Type
+    {
+        Key, Effect
+    };
+
     State keyState;
     public Text textTest;
+    public Type type;
 
     public GameObject spawnOnDeath;
     public GameObject spawnOnHit;
@@ -29,8 +35,11 @@ public class LifeTimer : MonoBehaviour
     {
         if (life <= 0) { 
             if (spawnOnDeath) Instantiate(spawnOnDeath, transform.position, transform.rotation);
-            keyState = State.Miss;
-            TestText.instance.Write(keyState.ToString());
+            if(type == Type.Key){
+                keyState = State.Miss;
+                TestText.instance.Write(keyState.ToString());
+            }
+           
             // send to text
             Destroy(gameObject); 
         }
