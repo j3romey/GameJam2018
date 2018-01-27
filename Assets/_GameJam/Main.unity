@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 871327619}
   - component: {fileID: 871327618}
   - component: {fileID: 871327617}
+  - component: {fileID: 871327620}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -700,6 +701,19 @@ Transform:
   m_Father: {fileID: 1180700830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871327620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871327616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89d99c7fe7c58240a1622a48ac85929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f0f69cf3bb2c1c844b5d883c96dd60d3, type: 2}
+  shift: {x: 0, y: 1}
 --- !u!1 &881334021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1172,7 @@ GameObject:
   - component: {fileID: 1355916904}
   - component: {fileID: 1355916902}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1192,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 49472b44f90bb3947b644cf38deddc7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1204,7 +1218,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1355916901}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1355916905
 Transform:
   m_ObjectHideFlags: 0
@@ -1301,14 +1315,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536819429}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 314ea4b9de153764d890b2769017cf71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   totalDrops: 0
   currentDrop: 0
-  grades: fdffffff0100000003000000
+  grades: ffffffff0100000003000000
   text: {fileID: 1536819431}
   normal: Cats are similar in anatomy to the other felids, with a strong flexible
     body, quick reflexes, sharp retractable claws, and teeth adapted to killing small
@@ -1316,7 +1330,6 @@ MonoBehaviour:
   scrambled: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  ans: 
   debug: 1
 --- !u!1 &1572073825
 GameObject:
