@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LifeTimer : MonoBehaviour
 {
+    public GameObject spawnOnDeath;
 
     public float life;
 
@@ -16,7 +17,7 @@ public class LifeTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (life <= 0) Destroy(gameObject);
+        if (life <= 0) { if (spawnOnDeath) Instantiate(spawnOnDeath, transform.position, transform.rotation); Destroy(gameObject); }
         life -= Time.deltaTime;
     }
 }
