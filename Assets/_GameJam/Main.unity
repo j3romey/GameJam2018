@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keycodes: 640000006600000067000000680000006a0000006b000000
   spawnTimes: {fileID: 621521841}
+  audio: {fileID: 621521842}
   timeToHit: 4
   filename: _GameJam/music
   laneSet: {fileID: 621521844}
@@ -663,11 +664,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keycodes: 640000006600000067000000680000006a0000006b000000
-  audio: {fileID: 0}
+  audio: {fileID: 881334027}
   filename: music
   spawnTimes: {fileID: 881334022}
   laneSet: {fileID: 881334023}
   space: 2
+  Timer: 0
 --- !u!4 &881334026
 Transform:
   m_ObjectHideFlags: 0
