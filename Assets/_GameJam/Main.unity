@@ -530,27 +530,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanes:
-  - dropPrefab: {fileID: 1769665174338544, guid: b6e20bcf4575bd04796515df516010d1,
+  - dropPrefab: {fileID: 1769665174338544, guid: ec7d90811b637430abfff1f6b4c637ba,
       type: 2}
     cubes: []
     location: {x: 0, y: 0, z: 0}
-  - dropPrefab: {fileID: 1769665174338544, guid: b6e20bcf4575bd04796515df516010d1,
+  - dropPrefab: {fileID: 1769665174338544, guid: cef8a63f3130b4283a24ca6319b94adf,
       type: 2}
     cubes: []
     location: {x: 0, y: 0, z: 0}
-  - dropPrefab: {fileID: 1769665174338544, guid: b6e20bcf4575bd04796515df516010d1,
+  - dropPrefab: {fileID: 1769665174338544, guid: 2b4db07d703a243f485707fba0ab3dac,
       type: 2}
     cubes: []
     location: {x: 0, y: 0, z: 0}
-  - dropPrefab: {fileID: 1769665174338544, guid: b6e20bcf4575bd04796515df516010d1,
+  - dropPrefab: {fileID: 1769665174338544, guid: b2f83be3b7358414eb5dc8fffaa91112,
       type: 2}
     cubes: []
     location: {x: 0, y: 0, z: 0}
-  - dropPrefab: {fileID: 1769665174338544, guid: b6e20bcf4575bd04796515df516010d1,
+  - dropPrefab: {fileID: 1769665174338544, guid: fca9e18526c704258b8772c2895899b8,
       type: 2}
     cubes: []
     location: {x: 0, y: 0, z: 0}
-  - dropPrefab: {fileID: 1769665174338544, guid: b6e20bcf4575bd04796515df516010d1,
+  - dropPrefab: {fileID: 1769665174338544, guid: 01b6731c3fa3f4267b2f436ae8908440,
       type: 2}
     cubes: []
     location: {x: 0, y: 0, z: 0}
@@ -718,7 +718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &881334022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,9 +786,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keycodes: 640000006600000067000000680000006a0000006b000000
   audio: {fileID: 881334027}
-  filename: music2
+  filename: music
   spawnTimes: {fileID: 881334022}
   laneSet: {fileID: 881334023}
+  TimeStart: 5
   space: 2
   Timer: 0
 --- !u!4 &881334026
@@ -813,7 +814,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e3f17b59095ca411c8926bb37cc6e055, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8dea98b6f988646a0a86707cad66d62c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -969,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7529412}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

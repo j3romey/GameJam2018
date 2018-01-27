@@ -19,8 +19,10 @@ public class LifeTimer : MonoBehaviour
     public Text textTest;
     public Type type;
 
-    public GameObject spawnOnDeath;
-    public GameObject spawnOnHit;
+    public GameObject Perfect;
+    public GameObject Good;
+    public GameObject Ok;
+    public GameObject Miss;
 
     public float life;
 
@@ -34,8 +36,9 @@ public class LifeTimer : MonoBehaviour
     void Update()
     {
         if (life <= 0) { 
-            if (spawnOnDeath) Instantiate(spawnOnDeath, transform.position, transform.rotation);
+            
             if(type == Type.Key){
+                if (Miss) Instantiate(Miss, transform.position, transform.rotation);
                 keyState = State.Miss;
                 TestText.instance.Write(keyState.ToString());
             }
@@ -49,7 +52,23 @@ public class LifeTimer : MonoBehaviour
     }
 
     public void Hit(State state){
-        if (spawnOnHit) Instantiate(spawnOnDeath, transform.position, transform.rotation);
+        
+        switch(state){
+            case State.Perfect:
+                if (Perfect) Instantiate(Perfect, transform.position, transform.rotation);
+                break;
+            case State.Good:
+                if (Good) Instantiate(Good, transform.position, transform.rotation);
+                break;
+            case State.Ok:
+                if (Ok) Instantiate(Ok, transform.position, transform.rotation);
+                break;
+            case State.Miss:
+                if (Miss) Instantiate(Miss, transform.position, transform.rotation);
+                break;
+            default:
+                break;
+        }
         keyState = state;
         TestText.instance.Write(keyState.ToString());
         // send to text
