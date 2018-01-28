@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public Press press;
 
     public AudioSource audio;
+    public AudioSource buttonSound;
 
     public float timeToHit;
 
@@ -41,11 +42,11 @@ public class Game : MonoBehaviour
         {
             if (Input.GetKeyDown(keycodes[i]))
             {
+                buttonSound.Play();
                 GameObject cube = laneSet.lanes[i].Closest(0f);
                 press.Check(cube);
             }
         }
-
 
         if (counter < spawnTimes.timeList.Count && Time.time + timeToHit >= spawnTimes.timeList[counter])
         {
