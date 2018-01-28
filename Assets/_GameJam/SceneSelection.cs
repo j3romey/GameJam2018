@@ -41,6 +41,7 @@ public class SceneSelection : MonoBehaviour
 
     public float p1, p2, p3;
 
+    public GameObject endScore;
 
     public void ToGame(int i)
     {
@@ -58,6 +59,8 @@ public class SceneSelection : MonoBehaviour
             LoadLevel2();
         }
         else LoadLevel3();
+
+
 
         laneSet.CalcLane();
         game.StartGame();
@@ -118,6 +121,7 @@ public class SceneSelection : MonoBehaviour
 
     public void ToMainMenu()
     {
+        endScore.SetActive(true);
         if (cameraRotationT < 2.5f) return;
         cameraRotationDirection = -1;
         cameraRotationT = 2.5f;
@@ -127,6 +131,10 @@ public class SceneSelection : MonoBehaviour
         StartCoroutine(FlickerMainMenu());
         skyt = 2.5f;
         skyd = -1;
+
+        ComboTracker.instance.perfect = 0;
+        ComboTracker.instance.miss = 0;
+        ComboTracker.instance.ok = 0;
 
         if (amazingCanvas.visible) { amazingCanvas.FlickerOff(0.5f); }
         else { amazingCanvas.FlickerOff(0.0f); }
@@ -156,6 +164,15 @@ public class SceneSelection : MonoBehaviour
         {
             ToMainMenu();
         }
+
+        if(game.spawnTimes.timeList.Count > 0){
+            if (game.gameTimer >= game.spawnTimes.timeList[game.spawnTimes.timeList.Count - 1])
+            {
+                endScore.SetActive(true);
+            }
+        }
+
+
     }
 
     public void Exit()

@@ -12,10 +12,13 @@ public class ComboTracker : MonoBehaviour {
 
     public int counter;
 
+    public int perfect, ok, miss;
+
     void Awake()
     {
         instance = this;
         counter = 0;
+        perfect = ok = miss = 0;
     }
 
     // Use this for initialization

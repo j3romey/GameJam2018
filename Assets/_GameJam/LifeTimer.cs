@@ -71,20 +71,22 @@ public class LifeTimer : MonoBehaviour
             case State.Perfect:
                 if (Perfect) Instantiate(Perfect, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(0);
+                ComboTracker.instance.perfect++;
                 break;
             case State.Good:
                 if (Good) Instantiate(Good, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
+
                 break;
             case State.Ok:
                 if (Ok) Instantiate(Ok, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
-
+                ComboTracker.instance.ok++;
                 break;
             case State.Miss:
                 if (Miss) Instantiate(Miss, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(2);
-           
+                ComboTracker.instance.miss++;
                 break;
             default:
                 break;
