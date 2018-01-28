@@ -27,6 +27,11 @@ public class SceneSelection : MonoBehaviour
 
     public KeyCode toMainKeycode;
 
+    public FlickerUI amazingCanvas;
+
+    public RectTransform scrambletransform;
+    public float scrambley, amazingscrambly;
+
     public void ToGame(int i)
     {
         if (cameraRotationT > 0) return;
@@ -44,6 +49,8 @@ public class SceneSelection : MonoBehaviour
         }
         else LoadLevel3();
 
+        laneSet.CalcLane();
+
         StartCoroutine(FlickerGame());
     }
 
@@ -57,16 +64,32 @@ public class SceneSelection : MonoBehaviour
     void LoadLevel1()
     {
         skyt = 0; skyd = 1; skyangle = level1skyrotate;
+        scrambletransform.anchoredPosition = Vector2.up * scrambley;
+        laneSet.height = 0;
+        laneSet.SelectCurve(0);
     }
 
     void LoadLevel2()
     {
         skyt = 0; skyd = 1; skyangle = level2skyrotate;
+        scrambletransform.anchoredPosition = Vector2.up * scrambley;
+        laneSet.height = 0;
+        laneSet.SelectCurve(0);
     }
 
     void LoadLevel3()
     {
+        laneSet.height = 70;
+        laneSet.SelectCurve(1);
+        skyt = 0; skyd = 0; skyangle = mainmenuskyrotate;
+        scrambletransform.anchoredPosition = Vector2.up * amazingscrambly;
+        StartCoroutine(FlickerAmazing());
+    }
 
+    IEnumerator FlickerAmazing()
+    {
+        yield return new WaitForSeconds(5.5f);
+        amazingCanvas.FlickerOn(0.5f);
     }
 
     public void ToMainMenu()
@@ -80,6 +103,8 @@ public class SceneSelection : MonoBehaviour
         StartCoroutine(FlickerMainMenu());
         skyt = 2.5f;
         skyd = -1;
+
+        if (amazingCanvas.visible) amazingCanvas.FlickerOff(0.5f);
     }
 
     IEnumerator FlickerMainMenu()
