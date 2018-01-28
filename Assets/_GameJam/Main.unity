@@ -460,6 +460,7 @@ MonoBehaviour:
   spawnTimes: {fileID: 621521841}
   press: {fileID: 621521843}
   audio: {fileID: 621521842}
+  buttonSound: {fileID: 0}
   timeToHit: 5
   filename: _GameJam/music
   laneSet: {fileID: 621521844}
@@ -1504,6 +1505,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   cameraRotationDirection: 0
   mainMenu: {fileID: 1633326072}
+  laneSet: {fileID: 621521844}
   toMainKeycode: 27
 --- !u!1 &1068939306
 GameObject:

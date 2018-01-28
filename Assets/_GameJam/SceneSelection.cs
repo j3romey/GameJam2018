@@ -16,6 +16,8 @@ public class SceneSelection : MonoBehaviour
 
     public FlickerUI mainMenu;
 
+	public LaneSet laneSet;
+
 
     public KeyCode toMainKeycode;
 
@@ -24,7 +26,7 @@ public class SceneSelection : MonoBehaviour
         if (cameraRotationT > 0) return;
         cameraRotationDirection = 1;
         cameraRotationT = 0;
-        mainMenu.FlickerOff(1.0f);
+        mainMenu.FlickerOff(.5f);
     }
 
     public void ToMainMenu()
@@ -32,7 +34,8 @@ public class SceneSelection : MonoBehaviour
         if (cameraRotationT < 2.5f) return;
         cameraRotationDirection = -1;
         cameraRotationT = 2.5f;
-        mainMenu.FlickerOn(1.0f);
+        mainMenu.FlickerOn(.5f);
+		laneSet.DestroyLanes();
     }
 
     // Use this for initialization
