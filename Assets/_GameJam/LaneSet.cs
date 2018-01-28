@@ -11,6 +11,8 @@ public class LaneSet : MonoBehaviour
     float curSpace;
     public float height, back = 400;
 
+    public AnimationCurve[] curves;
+
     [System.Serializable]
     public class Lane
     {
@@ -20,6 +22,9 @@ public class LaneSet : MonoBehaviour
 
         public Vector3 location;
 
+        public AnimationCurve curve;
+
+
         public Lane()
         {
             cubes = new List<GameObject>();
@@ -27,7 +32,17 @@ public class LaneSet : MonoBehaviour
 
         public void Spawn()
         {
-            cubes.Add(Instantiate(dropPrefab, location, Quaternion.identity));
+            var go = Instantiate(dropPrefab, location, Quaternion.identity);
+            cubes.Add(go);
+            var d = go.GetComponent<Drop>();
+            d.yStart = location.y;
+            d.zStart = location.z;
+            d.animationCurveY = curve;
+        }
+
+        public void SetCurve(AnimationCurve x)
+        {
+            curve = x;
         }
 
         public void Update()
@@ -71,6 +86,10 @@ public class LaneSet : MonoBehaviour
     void Start()
     {
 
+    }
+
+    public void CalcLane()
+    {
         float f = space * -lanes.Count + space;
 
         for (int i = 0; i < lanes.Count; i++)
@@ -89,12 +108,20 @@ public class LaneSet : MonoBehaviour
     }
 
     [ContextMenu("DestroyAllLanes")]
-    public void DestroyLanes(){
-        foreach(var lane in lanes){
-            foreach(var cube in lane.cubes){
+    public void DestroyLanes()
+    {
+        foreach (var lane in lanes)
+        {
+            foreach (var cube in lane.cubes)
+            {
                 Destroy(cube);
             }
             lane.cubes.RemoveAll(x => true);
         }
+    }
+
+    public void SelectCurve(int i)
+    {
+        foreach (var v in lanes) v.SetCurve(curves[i]);
     }
 }

@@ -20,15 +20,37 @@ public class SceneSelection : MonoBehaviour
     public Game game;
     public AudioSource gameSong;
 
+    public Transform sky;
+    public float mainmenuskyrotate, level1skyrotate, level2skyrotate;
+    public AnimationCurve skycurve; float skyt; float skyangle, skyd;
+
 
     public KeyCode toMainKeycode;
 
-    public void ToGame()
+    public FlickerUI amazingCanvas;
+
+    public RectTransform scrambletransform;
+    public float scrambley, amazingscrambly;
+
+    public void ToGame(int i)
     {
         if (cameraRotationT > 0) return;
         cameraRotationDirection = 1;
         cameraRotationT = 0;
         mainMenu.FlickerOff(.5f);
+
+        if (i == 1)
+        {
+            LoadLevel1();
+        }
+        else if (i == 2)
+        {
+            LoadLevel2();
+        }
+        else LoadLevel3();
+
+        laneSet.CalcLane();
+
         StartCoroutine(FlickerGame());
     }
 
@@ -36,6 +58,38 @@ public class SceneSelection : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         gameUI.FlickerOn(0.5f);
+    }
+
+
+    void LoadLevel1()
+    {
+        skyt = 0; skyd = 1; skyangle = level1skyrotate;
+        scrambletransform.anchoredPosition = Vector2.up * scrambley;
+        laneSet.height = 0;
+        laneSet.SelectCurve(0);
+    }
+
+    void LoadLevel2()
+    {
+        skyt = 0; skyd = 1; skyangle = level2skyrotate;
+        scrambletransform.anchoredPosition = Vector2.up * scrambley;
+        laneSet.height = 0;
+        laneSet.SelectCurve(0);
+    }
+
+    void LoadLevel3()
+    {
+        laneSet.height = 70;
+        laneSet.SelectCurve(1);
+        skyt = 0; skyd = 0; skyangle = mainmenuskyrotate;
+        scrambletransform.anchoredPosition = Vector2.up * amazingscrambly;
+        StartCoroutine(FlickerAmazing());
+    }
+
+    IEnumerator FlickerAmazing()
+    {
+        yield return new WaitForSeconds(5.5f);
+        amazingCanvas.FlickerOn(0.5f);
     }
 
     public void ToMainMenu()
@@ -47,6 +101,10 @@ public class SceneSelection : MonoBehaviour
         laneSet.DestroyLanes();
         game.Stop();
         StartCoroutine(FlickerMainMenu());
+        skyt = 2.5f;
+        skyd = -1;
+
+        if (amazingCanvas.visible) amazingCanvas.FlickerOff(0.5f);
     }
 
     IEnumerator FlickerMainMenu()
@@ -66,6 +124,8 @@ public class SceneSelection : MonoBehaviour
     {
         cameraTransform.rotation = Quaternion.Lerp(defaultCameraRotation, Quaternion.identity, cameraRotationCurve.Evaluate(cameraRotationT));
         cameraRotationT += cameraRotationDirection * Time.deltaTime;
+        sky.rotation = Quaternion.LerpUnclamped(Quaternion.Euler(mainmenuskyrotate, 0, 0), Quaternion.Euler(skyangle, 0, 0), skycurve.Evaluate(skyt));
+        skyt += skyd * Time.deltaTime;
 
         if (Input.GetKeyDown(toMainKeycode))
         {
