@@ -30,8 +30,6 @@ public class Press : MonoBehaviour
             LifeTimer lifeTime = cube.GetComponent<LifeTimer>();
             float difference = Mathf.Abs(lifeTime.life - expectedLife);
 
-
-
             if (difference <= 0.15 && difference >= 0)
             {
                 if (debug)
