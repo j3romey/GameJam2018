@@ -41,6 +41,7 @@ public class LifeTimer : MonoBehaviour
                 if (Miss) Instantiate(Miss, transform.position, transform.rotation);
                 keyState = State.Miss;
                 TestText.instance.Write(keyState.ToString());
+                ScrambleText.instance.Decide(0);
             }
            
             // send to text
@@ -56,15 +57,19 @@ public class LifeTimer : MonoBehaviour
         switch(state){
             case State.Perfect:
                 if (Perfect) Instantiate(Perfect, transform.position, transform.rotation);
+                ScrambleText.instance.Decide(0);
                 break;
             case State.Good:
                 if (Good) Instantiate(Good, transform.position, transform.rotation);
+                ScrambleText.instance.Decide(1);
                 break;
             case State.Ok:
                 if (Ok) Instantiate(Ok, transform.position, transform.rotation);
+                ScrambleText.instance.Decide(1);
                 break;
             case State.Miss:
                 if (Miss) Instantiate(Miss, transform.position, transform.rotation);
+                ScrambleText.instance.Decide(2);
                 break;
             default:
                 break;

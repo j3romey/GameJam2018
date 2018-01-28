@@ -29,14 +29,18 @@ public class Game : MonoBehaviour
         inputOrder = "";
         spawnTimes.Read(filename);
         audio.PlayDelayed(timeToHit);
+
+        ScrambleText.instance.totalDrops = spawnTimes.timeList.Count;
+        ScrambleText.instance.ReInitialize();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(counter < spawnTimes.timeList.Count && Time.time+ timeToHit >= spawnTimes.timeList[counter] ){
-   
+        if (counter < spawnTimes.timeList.Count && Time.time + timeToHit >= spawnTimes.timeList[counter])
+        {
+
             laneSet.lanes[spawnTimes.laneList[counter]].Spawn();
             counter++;
         }

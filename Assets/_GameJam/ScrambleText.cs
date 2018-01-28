@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ScrambleText : MonoBehaviour
 {
+    public static ScrambleText instance;
+
     public int totalDrops;
     public int currentDrop;
     public int[] grades;
@@ -22,8 +24,18 @@ public class ScrambleText : MonoBehaviour
     int[] scores;
     int[] prefixSum;
 
+    void Awake()
+    {
+        instance = this;
+    }
+
     // Use this for initialization
     void Start()
+    {
+        ReInitialize();
+    }
+
+    public void ReInitialize()
     {
         currentDrop = 0;
         currentChar = 0;

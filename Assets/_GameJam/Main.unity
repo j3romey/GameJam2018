@@ -435,7 +435,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e3f17b59095ca411c8926bb37cc6e055, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8dea98b6f988646a0a86707cad66d62c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedLife: 1
+  debug: 0
 --- !u!114 &621521844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &881334022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,9 +1376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  m_Text: Lorem ipsum dolor sit amet.
 --- !u!222 &1536819432
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1397,11 +1396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalDrops: 0
   currentDrop: 0
-  grades: ffffffff0100000003000000
+  grades: 000000000100000005000000
   text: {fileID: 1536819431}
-  normal: Cats are similar in anatomy to the other felids, with a strong flexible
-    body, quick reflexes, sharp retractable claws, and teeth adapted to killing small
-    prey. Cat senses fit a crepuscular and predatory ecological niche.
+  normal: My name is geoff.
   scrambled: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -1731,7 +1728,7 @@ MonoBehaviour:
       shape: 1
       radius: 300
       amount: 96
-      sensitivity: 192
+      sensitivity: 100
       speed: 5
     spectrum:
       FffWindowType: 5
