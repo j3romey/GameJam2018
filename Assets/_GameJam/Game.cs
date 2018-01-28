@@ -37,14 +37,6 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (counter < spawnTimes.timeList.Count && Time.time + timeToHit >= spawnTimes.timeList[counter])
-        {
-
-            laneSet.lanes[spawnTimes.laneList[counter]].Spawn();
-            counter++;
-        }
-
         for (int i = 0; i < keycodes.Count; i++)
         {
             if (Input.GetKeyDown(keycodes[i]))
@@ -54,5 +46,11 @@ public class Game : MonoBehaviour
             }
         }
 
+
+        if (counter < spawnTimes.timeList.Count && Time.time + timeToHit >= spawnTimes.timeList[counter])
+        {
+            laneSet.lanes[spawnTimes.laneList[counter]].Spawn();
+            counter++;
+        }
     }
 }

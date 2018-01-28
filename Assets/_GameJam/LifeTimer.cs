@@ -24,6 +24,9 @@ public class LifeTimer : MonoBehaviour
     public GameObject Ok;
     public GameObject Miss;
 
+    //comboCounter
+    public int counter;
+
     public float life;
 
     // Use this for initialization
@@ -42,6 +45,8 @@ public class LifeTimer : MonoBehaviour
                 keyState = State.Miss;
                 TestText.instance.Write(keyState.ToString());
                 ScrambleText.instance.Decide(0);
+                ComboTracker.instance.counter = 0;
+                ComboTracker.instance.Change();
             }
            
             // send to text
@@ -53,6 +58,14 @@ public class LifeTimer : MonoBehaviour
     }
 
     public void Hit(State state){
+
+        if(state == State.Miss){
+            ComboTracker.instance.counter = 0;
+        }else{
+            ComboTracker.instance.counter++;
+        }
+
+        ComboTracker.instance.Change();
         
         switch(state){
             case State.Perfect:
@@ -62,14 +75,17 @@ public class LifeTimer : MonoBehaviour
             case State.Good:
                 if (Good) Instantiate(Good, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
+             
                 break;
             case State.Ok:
                 if (Ok) Instantiate(Ok, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
+
                 break;
             case State.Miss:
                 if (Miss) Instantiate(Miss, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(2);
+           
                 break;
             default:
                 break;

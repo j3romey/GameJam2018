@@ -24,6 +24,9 @@ public class ScrambleText : MonoBehaviour
     int[] scores;
     int[] prefixSum;
 
+    //comboCounter
+    int counter;
+
     void Awake()
     {
         instance = this;
@@ -32,7 +35,6 @@ public class ScrambleText : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        ReInitialize();
     }
 
     public void ReInitialize()
@@ -59,6 +61,8 @@ public class ScrambleText : MonoBehaviour
             }
         }
         text.text = ans.ToString();
+
+        counter = 0;
     }
 
     // Update is called once per frame
@@ -97,7 +101,7 @@ public class ScrambleText : MonoBehaviour
         scores[currentChar] += grades[x];
         if (char.IsLetter(normal[currentChar]))
         {
-            if (scores[currentChar] >= dropsPerChar)
+            if (scores[currentChar] >= dropsPerChar + 4)
             {
                 ans[currentChar] = normal[currentChar];
             }

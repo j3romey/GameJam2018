@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 621521841}
   - component: {fileID: 621521842}
   - component: {fileID: 621521843}
+  - component: {fileID: 621521845}
   m_Layer: 0
   m_Name: Play
   m_TagString: Untagged
@@ -559,6 +560,20 @@ MonoBehaviour:
   space: 2
   height: 0
   back: 400
+--- !u!114 &621521845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621521838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6eaa0b3cd6234c42a8c989a9ef91af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterText: {fileID: 0}
+  wordText: {fileID: 0}
+  counter: 0
 --- !u!1 &822407154
 GameObject:
   m_ObjectHideFlags: 0

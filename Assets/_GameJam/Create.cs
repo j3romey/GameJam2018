@@ -30,9 +30,9 @@ public class Create : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timer += Time.deltaTime;
+        //Timer += Time.deltaTime;
 
-        Debug.Log(Timer);
+        //Debug.Log(Timer);
 
         for (int i = 0; i < keycodes.Count; i++)
         {
@@ -41,6 +41,8 @@ public class Create : MonoBehaviour
                 spawnTimes.Write(i, Time.time);
             }
         }
+
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
