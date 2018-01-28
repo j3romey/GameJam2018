@@ -16,7 +16,6 @@ public class ComboTracker : MonoBehaviour {
     {
         instance = this;
         counter = 0;
-        Debug.Log("hi");
     }
 
     // Use this for initialization

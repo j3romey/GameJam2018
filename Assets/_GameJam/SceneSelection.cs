@@ -14,7 +14,7 @@ public class SceneSelection : MonoBehaviour
 
     Quaternion defaultCameraRotation;
 
-    public Canvas mainMenu;
+    public FlickerUI mainMenu;
 
 
     public KeyCode toMainKeycode;
@@ -24,7 +24,7 @@ public class SceneSelection : MonoBehaviour
         if (cameraRotationT > 0) return;
         cameraRotationDirection = 1;
         cameraRotationT = 0;
-        mainMenu.enabled = false;
+        mainMenu.FlickerOff(1.0f);
     }
 
     public void ToMainMenu()
@@ -32,7 +32,7 @@ public class SceneSelection : MonoBehaviour
         if (cameraRotationT < 2.5f) return;
         cameraRotationDirection = -1;
         cameraRotationT = 2.5f;
-        mainMenu.enabled = true;
+        mainMenu.FlickerOn(1.0f);
     }
 
     // Use this for initialization
