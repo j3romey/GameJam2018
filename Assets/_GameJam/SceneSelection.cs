@@ -14,9 +14,9 @@ public class SceneSelection : MonoBehaviour
 
     Quaternion defaultCameraRotation;
 
-    public FlickerUI mainMenu;
+    public FlickerUI mainMenu, gameUI;
 
-	public LaneSet laneSet;
+    public LaneSet laneSet;
     public Game game;
     public AudioSource gameSong;
 
@@ -29,6 +29,13 @@ public class SceneSelection : MonoBehaviour
         cameraRotationDirection = 1;
         cameraRotationT = 0;
         mainMenu.FlickerOff(.5f);
+        StartCoroutine(FlickerGame());
+    }
+
+    IEnumerator FlickerGame()
+    {
+        yield return new WaitForSeconds(2.0f);
+        gameUI.FlickerOn(0.5f);
     }
 
     public void ToMainMenu()
@@ -36,10 +43,16 @@ public class SceneSelection : MonoBehaviour
         if (cameraRotationT < 2.5f) return;
         cameraRotationDirection = -1;
         cameraRotationT = 2.5f;
-        mainMenu.FlickerOn(.5f);
-		laneSet.DestroyLanes();
+        gameUI.FlickerOff(0.5f);
+        laneSet.DestroyLanes();
         game.Stop();
+        StartCoroutine(FlickerMainMenu());
+    }
 
+    IEnumerator FlickerMainMenu()
+    {
+        yield return new WaitForSeconds(2.0f);
+        mainMenu.FlickerOn(0.5f);
     }
 
     // Use this for initialization
