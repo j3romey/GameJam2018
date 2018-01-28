@@ -49,6 +49,7 @@ public class LifeTimer : MonoBehaviour
                 ScrambleText.instance.Decide(2);
                 ComboTracker.instance.counter = 0;
                 ComboTracker.instance.Change();
+                ComboTracker.instance.miss++;
             }
 
             // send to text

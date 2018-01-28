@@ -121,7 +121,7 @@ public class SceneSelection : MonoBehaviour
 
     public void ToMainMenu()
     {
-        endScore.SetActive(true);
+        endScore.SetActive(false);
         if (cameraRotationT < 2.5f) return;
         cameraRotationDirection = -1;
         cameraRotationT = 2.5f;
@@ -135,6 +135,8 @@ public class SceneSelection : MonoBehaviour
         ComboTracker.instance.perfect = 0;
         ComboTracker.instance.miss = 0;
         ComboTracker.instance.ok = 0;
+
+
 
         if (amazingCanvas.visible) { amazingCanvas.FlickerOff(0.5f); }
         else { amazingCanvas.FlickerOff(0.0f); }
@@ -166,7 +168,7 @@ public class SceneSelection : MonoBehaviour
         }
 
         if(game.spawnTimes.timeList.Count > 0){
-            if (game.gameTimer >= game.spawnTimes.timeList[game.spawnTimes.timeList.Count - 1])
+            if (game.gameTimer >= game.spawnTimes.timeList[game.spawnTimes.timeList.Count - 1]+0.5f)
             {
                 endScore.SetActive(true);
             }
