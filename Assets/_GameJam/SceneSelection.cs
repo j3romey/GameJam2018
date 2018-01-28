@@ -20,15 +20,30 @@ public class SceneSelection : MonoBehaviour
     public Game game;
     public AudioSource gameSong;
 
+    public Transform sky;
+    public float mainmenuskyrotate, level1skyrotate, level2skyrotate;
+    public AnimationCurve skycurve; float skyt; float skyangle, skyd;
+
 
     public KeyCode toMainKeycode;
 
-    public void ToGame()
+    public void ToGame(int i)
     {
         if (cameraRotationT > 0) return;
         cameraRotationDirection = 1;
         cameraRotationT = 0;
         mainMenu.FlickerOff(.5f);
+
+        if (i == 1)
+        {
+            LoadLevel1();
+        }
+        else if (i == 2)
+        {
+            LoadLevel2();
+        }
+        else LoadLevel3();
+
         StartCoroutine(FlickerGame());
     }
 
@@ -36,6 +51,22 @@ public class SceneSelection : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         gameUI.FlickerOn(0.5f);
+    }
+
+
+    void LoadLevel1()
+    {
+        skyt = 0; skyd = 1; skyangle = level1skyrotate;
+    }
+
+    void LoadLevel2()
+    {
+        skyt = 0; skyd = 1; skyangle = level2skyrotate;
+    }
+
+    void LoadLevel3()
+    {
+
     }
 
     public void ToMainMenu()
@@ -47,6 +78,8 @@ public class SceneSelection : MonoBehaviour
         laneSet.DestroyLanes();
         game.Stop();
         StartCoroutine(FlickerMainMenu());
+        skyt = 2.5f;
+        skyd = -1;
     }
 
     IEnumerator FlickerMainMenu()
@@ -66,6 +99,8 @@ public class SceneSelection : MonoBehaviour
     {
         cameraTransform.rotation = Quaternion.Lerp(defaultCameraRotation, Quaternion.identity, cameraRotationCurve.Evaluate(cameraRotationT));
         cameraRotationT += cameraRotationDirection * Time.deltaTime;
+        sky.rotation = Quaternion.LerpUnclamped(Quaternion.Euler(mainmenuskyrotate, 0, 0), Quaternion.Euler(skyangle, 0, 0), skycurve.Evaluate(skyt));
+        skyt += skyd * Time.deltaTime;
 
         if (Input.GetKeyDown(toMainKeycode))
         {
