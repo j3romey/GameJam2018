@@ -14,6 +14,9 @@ public class Game : MonoBehaviour
     public AnimationCurve soundCurve;
     float soundFloat;
 
+    public AudioClip buttonClip;
+    public AudioSource buttonAudio;
+
     public float timeToHit;
 
     public string filename;
@@ -53,7 +56,7 @@ public class Game : MonoBehaviour
             {
                 if (Input.GetKeyDown(keycodes[i]))
                 {
-                    
+                    buttonAudio.PlayOneShot(buttonClip);
                     GameObject cube = laneSet.lanes[i].Closest(0f);
                     press.Check(cube);
                 }
