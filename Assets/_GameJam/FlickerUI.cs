@@ -43,4 +43,16 @@ public class FlickerUI : MonoBehaviour
         flickerTime = Time.time + t;
         visible = false;
     }
+
+    public void OnAndOff()
+    {
+        StartCoroutine(F());
+    }
+
+    IEnumerator F()
+    {
+        FlickerOn(0.5f);
+        yield return new WaitForSeconds(1.5f);
+        FlickerOff(0.5f);
+    }
 }
