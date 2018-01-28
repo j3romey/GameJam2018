@@ -89,7 +89,8 @@ public class SceneSelection : MonoBehaviour
     IEnumerator FlickerAmazing()
     {
         yield return new WaitForSeconds(5.5f);
-        amazingCanvas.FlickerOn(0.5f);
+        if (cameraRotationT >= 2.5f)
+            amazingCanvas.FlickerOn(0.5f);
     }
 
     public void ToMainMenu()
@@ -104,7 +105,8 @@ public class SceneSelection : MonoBehaviour
         skyt = 2.5f;
         skyd = -1;
 
-        if (amazingCanvas.visible) amazingCanvas.FlickerOff(0.5f);
+        if (amazingCanvas.visible) { amazingCanvas.FlickerOff(0.5f); }
+        else { amazingCanvas.FlickerOff(0.0f); }
     }
 
     IEnumerator FlickerMainMenu()
