@@ -106,7 +106,7 @@ public class ScrambleText : MonoBehaviour
             ans[currentChar] = (char)Random.Range((int)'a', (int)'z');
         }
         currentDrop++;
-        if (currentDrop > prefixSum[currentChar])
+        if (currentDrop >= prefixSum[currentChar])
         {
             if (scores[currentChar] >= dropsPerChar + difficulty)
             {
@@ -116,6 +116,7 @@ public class ScrambleText : MonoBehaviour
             {
                 ans[currentChar] = (char)Random.Range((int)'a', (int)'z');
             }
+            if (currentChar == normal.Length - 1) ans[currentChar] = normal[currentChar];
             if (!char.IsLetter(normal[currentChar])) ans[currentChar] = normal[currentChar];
             currentChar++;
         }
