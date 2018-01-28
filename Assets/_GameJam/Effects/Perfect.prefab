@@ -84,12 +84,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textTest: {fileID: 0}
   type: 1
-  spawnOnDeath: {fileID: 0}
-  spawnOnHit: {fileID: 0}
   Perfect: {fileID: 0}
   Good: {fileID: 0}
   Ok: {fileID: 0}
   Miss: {fileID: 0}
+  counter: 0
   life: 1
 --- !u!198 &198026092433099852
 ParticleSystem:
@@ -217,7 +216,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.022058845, g: 1, b: 0.109736085, a: 1}
+      maxColor: {r: 0.30147058, g: 0.853, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

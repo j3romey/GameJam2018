@@ -75,7 +75,6 @@ public class LifeTimer : MonoBehaviour
             case State.Good:
                 if (Good) Instantiate(Good, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
-             
                 break;
             case State.Ok:
                 if (Ok) Instantiate(Ok, transform.position, transform.rotation);
