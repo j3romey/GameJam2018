@@ -38,13 +38,13 @@ public class SpawnTimes : MonoBehaviour {
 
                 input = cur.Split(' ');
                 laneList.Add(int.Parse(input[0]));
-                timeList.Add(float.Parse(input[1]));
+                timeList.Add(Mathf.Round(float.Parse(input[1]) / (60f / 2 / 124)) * (60f / 2 / 124));
             }
         }
     }
 
     public void Write(int lane, float time){
-        Debug.Log(lane + " " + time);
+        //Debug.Log(lane + " " + time);
         inputOrder += lane + " " + time + "\n";
     }
 
