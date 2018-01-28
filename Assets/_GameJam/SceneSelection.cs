@@ -30,7 +30,15 @@ public class SceneSelection : MonoBehaviour
     public FlickerUI amazingCanvas;
 
     public RectTransform scrambletransform;
+    public ScrambleText scrambleText;
     public float scrambley, amazingscrambly;
+
+    public string name1, name2, name3;
+    public AudioClip clip1, clip2, clip3;
+
+    [TextArea(10, 20)]
+    public string text1, text2, text3;
+
 
     public void ToGame(int i)
     {
@@ -50,6 +58,7 @@ public class SceneSelection : MonoBehaviour
         else LoadLevel3();
 
         laneSet.CalcLane();
+        game.StartGame();
 
         StartCoroutine(FlickerGame());
     }
@@ -65,7 +74,10 @@ public class SceneSelection : MonoBehaviour
     {
         skyt = 0; skyd = 1; skyangle = level1skyrotate;
         scrambletransform.anchoredPosition = Vector2.up * scrambley;
+        scrambleText.normal = text1;
         laneSet.height = 0;
+        game.filename = name1;
+        gameSong.clip = clip1;
         laneSet.SelectCurve(0);
     }
 
@@ -73,14 +85,20 @@ public class SceneSelection : MonoBehaviour
     {
         skyt = 0; skyd = 1; skyangle = level2skyrotate;
         scrambletransform.anchoredPosition = Vector2.up * scrambley;
+        scrambleText.normal = text2;
         laneSet.height = 0;
+        game.filename = name2;
+        gameSong.clip = clip2;
         laneSet.SelectCurve(0);
     }
 
     void LoadLevel3()
     {
         laneSet.height = 70;
+        game.filename = name3;
+        scrambleText.normal = text3;
         laneSet.SelectCurve(1);
+        gameSong.clip = clip3;
         skyt = 0; skyd = 0; skyangle = mainmenuskyrotate;
         scrambletransform.anchoredPosition = Vector2.up * amazingscrambly;
         StartCoroutine(FlickerAmazing());
@@ -133,5 +151,9 @@ public class SceneSelection : MonoBehaviour
         {
             ToMainMenu();
         }
+    }
+
+    public void Exit(){
+        Application.Quit();
     }
 }

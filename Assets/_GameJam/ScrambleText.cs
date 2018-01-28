@@ -116,6 +116,7 @@ public class ScrambleText : MonoBehaviour
             {
                 ans[currentChar] = (char)Random.Range((int)'a', (int)'z');
             }
+            if (!char.IsLetter(normal[currentChar])) ans[currentChar] = normal[currentChar];
             currentChar++;
         }
         text.text = ans.ToString();

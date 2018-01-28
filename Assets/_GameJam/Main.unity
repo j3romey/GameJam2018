@@ -421,7 +421,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 369368032}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -810,7 +810,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8dea98b6f988646a0a86707cad66d62c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ed04c627a29b34fe68bf87438a9f4c03, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1191,17 +1191,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 621521839}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1572073827}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
@@ -1415,7 +1404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 809472433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037520910}
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &809472433
@@ -2112,7 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 1597855586}
-  menuCameraAngle: -26.83
+  menuCameraAngle: -52
   cameraRotationCurve:
     serializedVersion: 2
     m_Curve:
@@ -2186,8 +2186,20 @@ MonoBehaviour:
   toMainKeycode: 27
   amazingCanvas: {fileID: 369368037}
   scrambletransform: {fileID: 1536819430}
+  scrambleText: {fileID: 1536819433}
   scrambley: 240
   amazingscrambly: 360
+  name1: _GameJam/music_geoff
+  name2: _GameJam/music_bumblebee
+  name3: _GameJam/music_mainstream
+  clip1: {fileID: 8300000, guid: 8dea98b6f988646a0a86707cad66d62c, type: 3}
+  clip2: {fileID: 8300000, guid: b5d2c5016b84f4b1f812ca1f247b72a9, type: 3}
+  clip3: {fileID: 8300000, guid: ed04c627a29b34fe68bf87438a9f4c03, type: 3}
+  text1: my name is geoff
+  text2: to bee or not to bee
+  text3: 'f*kk the mainstream
+
+    stay underground'
 --- !u!1 &1068939306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,17 +2474,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 621521839}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3228,7 +3229,9 @@ MonoBehaviour:
   currentDrop: 0
   grades: 030000000100000000000000
   text: {fileID: 1536819431}
-  normal: My name is geoff.
+  normal: 'f*ckk de mainstream
+
+    stay underground'
   scrambled: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -3668,17 +3671,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 621521839}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
