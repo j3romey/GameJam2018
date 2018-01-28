@@ -27,7 +27,7 @@ public class Game : MonoBehaviour
     int counter = 0;
 
     bool paused = true;
-    float gameTimer;
+    public float gameTimer;
 
     // Use this for initialization
     public void StartGame()

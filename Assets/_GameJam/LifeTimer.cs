@@ -79,23 +79,25 @@ public class LifeTimer : MonoBehaviour
                 if (Perfect) Instantiate(Perfect, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(0);
                 TestText.instance.Write(state.ToString() + "!! :D");
+                ComboTracker.instance.perfect++;
                 break;
             case State.Good:
                 if (Good) Instantiate(Good, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
-                TestText.instance.Write(state.ToString());
                 break;
             case State.Ok:
                 if (Ok) Instantiate(Ok, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(1);
                 TestText.instance.Write(state.ToString() + " :)");
 
+                ComboTracker.instance.ok++;
                 break;
             case State.Miss:
                 if (Miss) Instantiate(Miss, transform.position, transform.rotation);
                 ScrambleText.instance.Decide(2);
                 TestText.instance.Write(state.ToString() + " X_X");
 
+                ComboTracker.instance.miss++;
                 break;
             default:
                 break;
