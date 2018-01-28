@@ -11,12 +11,12 @@ public class Game : MonoBehaviour
     public Press press;
 
     public AudioSource audio;
-    public AudioSource buttonSound;
+    public AnimationCurve soundCurve;
+    float soundFloat;
 
     public float timeToHit;
 
     public string filename;
-    string inputOrder;
 
     public LaneSet laneSet;
 
@@ -24,11 +24,17 @@ public class Game : MonoBehaviour
 
     int counter = 0;
 
+    bool paused = true;
+    float gameTimer;
+
     // Use this for initialization
-    void Start()
+    public void StartGame()
     {
-        inputOrder = "";
+        paused = false;
+        gameTimer = 0;
+        soundFloat = 0;
         spawnTimes.Read(filename);
+        audio.volume = 1;
         audio.PlayDelayed(timeToHit);
 
         ScrambleText.instance.totalDrops = spawnTimes.timeList.Count;
@@ -38,20 +44,42 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < keycodes.Count; i++)
+        if (!paused)
         {
-            if (Input.GetKeyDown(keycodes[i]))
+            gameTimer += Time.deltaTime;
+
+
+            for (int i = 0; i < keycodes.Count; i++)
             {
-                buttonSound.Play();
-                GameObject cube = laneSet.lanes[i].Closest(0f);
-                press.Check(cube);
+                if (Input.GetKeyDown(keycodes[i]))
+                {
+                    
+                    GameObject cube = laneSet.lanes[i].Closest(0f);
+                    press.Check(cube);
+                }
+            }
+            //Time.time
+            if (counter < spawnTimes.timeList.Count && gameTimer + timeToHit >= spawnTimes.timeList[counter])
+            {
+                laneSet.lanes[spawnTimes.laneList[counter]].Spawn();
+                counter++;
+            }
+
+
+        }else{
+            if(soundFloat <= 1.0f){
+                soundFloat += Time.deltaTime;
+                audio.volume = Mathf.Lerp(1.0f, 0.0f, soundCurve.Evaluate(soundFloat));
+            }else{
+                audio.Stop();
             }
         }
+    }
 
-        if (counter < spawnTimes.timeList.Count && Time.time + timeToHit >= spawnTimes.timeList[counter])
-        {
-            laneSet.lanes[spawnTimes.laneList[counter]].Spawn();
-            counter++;
-        }
+    public void Stop()
+    {
+        paused = true;
+        counter = 0;
+        gameTimer = 0;
     }
 }

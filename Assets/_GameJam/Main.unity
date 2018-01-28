@@ -460,7 +460,24 @@ MonoBehaviour:
   spawnTimes: {fileID: 621521841}
   press: {fileID: 621521843}
   audio: {fileID: 621521842}
-  buttonSound: {fileID: 0}
+  soundCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   timeToHit: 5
   filename: _GameJam/music
   laneSet: {fileID: 621521844}
@@ -704,6 +721,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1037520910}
         m_MethodName: ToGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 621521839}
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1506,6 +1534,8 @@ MonoBehaviour:
   cameraRotationDirection: 0
   mainMenu: {fileID: 1633326072}
   laneSet: {fileID: 621521844}
+  game: {fileID: 621521839}
+  gameSong: {fileID: 621521842}
   toMainKeycode: 27
 --- !u!1 &1068939306
 GameObject:

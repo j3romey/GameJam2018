@@ -17,6 +17,8 @@ public class SceneSelection : MonoBehaviour
     public FlickerUI mainMenu;
 
 	public LaneSet laneSet;
+    public Game game;
+    public AudioSource gameSong;
 
 
     public KeyCode toMainKeycode;
@@ -36,6 +38,8 @@ public class SceneSelection : MonoBehaviour
         cameraRotationT = 2.5f;
         mainMenu.FlickerOn(.5f);
 		laneSet.DestroyLanes();
+        game.Stop();
+
     }
 
     // Use this for initialization
