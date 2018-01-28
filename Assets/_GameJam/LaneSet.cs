@@ -46,6 +46,7 @@ public class LaneSet : MonoBehaviour
 
                 foreach (var cube in cubes)
                 {
+                    if (cube == null) continue;
                     if (cube.transform.position.z - z > currentDif)
                     {
                         currentCube = cube;

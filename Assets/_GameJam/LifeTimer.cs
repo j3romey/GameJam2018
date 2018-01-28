@@ -44,7 +44,7 @@ public class LifeTimer : MonoBehaviour
                 if (Miss) Instantiate(Miss, transform.position, transform.rotation);
                 keyState = State.Miss;
                 TestText.instance.Write(keyState.ToString());
-                ScrambleText.instance.Decide(0);
+                ScrambleText.instance.Decide(2);
                 ComboTracker.instance.counter = 0;
                 ComboTracker.instance.Change();
             }

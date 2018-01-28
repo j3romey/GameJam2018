@@ -18,6 +18,8 @@ public class ScrambleText : MonoBehaviour
 
     public StringBuilder ans;
 
+    public int difficulty;
+
     public bool debug;
 
     int dropsPerChar, longerChars, currentChar;
@@ -101,7 +103,12 @@ public class ScrambleText : MonoBehaviour
         scores[currentChar] += grades[x];
         if (char.IsLetter(normal[currentChar]))
         {
-            if (scores[currentChar] >= dropsPerChar + 4)
+            ans[currentChar] = (char)Random.Range((int)'a', (int)'z');
+        }
+        currentDrop++;
+        if (currentDrop > prefixSum[currentChar])
+        {
+            if (scores[currentChar] >= dropsPerChar + difficulty)
             {
                 ans[currentChar] = normal[currentChar];
             }
@@ -109,11 +116,6 @@ public class ScrambleText : MonoBehaviour
             {
                 ans[currentChar] = (char)Random.Range((int)'a', (int)'z');
             }
-        }
-        currentDrop++;
-        if (currentDrop > prefixSum[currentChar])
-        {
-
             currentChar++;
         }
         text.text = ans.ToString();

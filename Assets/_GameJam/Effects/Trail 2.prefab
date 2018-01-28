@@ -146,9 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textTest: {fileID: 0}
-  type: 0
+  type: 1
   Perfect: {fileID: 0}
   Good: {fileID: 0}
   Ok: {fileID: 0}
   Miss: {fileID: 0}
+  counter: 0
   life: 15

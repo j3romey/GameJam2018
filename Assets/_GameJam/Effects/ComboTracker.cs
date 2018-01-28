@@ -26,8 +26,6 @@ public class ComboTracker : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Change () {
-        Debug.Log(counter);
-
         if(counter > 1){
             counterText.text = counter.ToString();
             wordText.text = "Combo";
