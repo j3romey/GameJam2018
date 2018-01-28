@@ -87,4 +87,14 @@ public class LaneSet : MonoBehaviour
             lane.Update();
         }
     }
+
+    [ContextMenu("DestroyAllLanes")]
+    public void DestroyLanes(){
+        foreach(var lane in lanes){
+            foreach(var cube in lane.cubes){
+                Destroy(cube);
+            }
+            lane.cubes.RemoveAll(x => true);
+        }
+    }
 }
