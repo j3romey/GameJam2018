@@ -22,14 +22,18 @@ public class Create : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        audio.PlayDelayed(TimeStart);
+    }
+
+    public void StartTimer()
+    {
         Timer = 0;
+        audio.PlayDelayed(TimeStart);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Timer += Time.deltaTime;
+        Timer += Time.deltaTime;
 
         //Debug.Log(Timer);
 
@@ -37,7 +41,7 @@ public class Create : MonoBehaviour
         {
             if (Input.GetKeyDown(keycodes[i]))
             {
-                spawnTimes.Write(i, Time.time);
+                spawnTimes.Write(i, Timer);
             }
         }
 

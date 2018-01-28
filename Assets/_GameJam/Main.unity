@@ -801,13 +801,14 @@ MonoBehaviour:
   DEBUG: 0
   laneList: 
   timeList: []
+  period: 0.112782
 --- !u!82 &621521842
 AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621521838}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ed04c627a29b34fe68bf87438a9f4c03, type: 3}
@@ -887,7 +888,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621521838}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01555a28d134d96ad32bc658ddcf19, type: 3}
   m_Name: 
@@ -1197,6 +1198,28 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1572073825}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 881334024}
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 621521841}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1633,8 +1656,6 @@ GameObject:
   m_Component:
   - component: {fileID: 881334026}
   - component: {fileID: 881334024}
-  - component: {fileID: 881334023}
-  - component: {fileID: 881334022}
   - component: {fileID: 881334027}
   m_Layer: 0
   m_Name: Create
@@ -1642,98 +1663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &881334022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 881334021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e68fead2ca6470aa7b1aec449c3fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DEBUG: 0
-  laneList: 
-  timeList: []
---- !u!114 &881334023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 881334021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de163330eee2f44b2848c6891dc518ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lanes:
-  - dropPrefab: {fileID: 1699859149431916, guid: 39777040806483b458ad799422eb5262,
-      type: 2}
-    cubes: []
-    location: {x: 0, y: 0, z: 0}
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - dropPrefab: {fileID: 1699859149431916, guid: 39777040806483b458ad799422eb5262,
-      type: 2}
-    cubes: []
-    location: {x: 0, y: 0, z: 0}
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - dropPrefab: {fileID: 1699859149431916, guid: 39777040806483b458ad799422eb5262,
-      type: 2}
-    cubes: []
-    location: {x: 0, y: 0, z: 0}
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - dropPrefab: {fileID: 1699859149431916, guid: 39777040806483b458ad799422eb5262,
-      type: 2}
-    cubes: []
-    location: {x: 0, y: 0, z: 0}
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - dropPrefab: {fileID: 1699859149431916, guid: 39777040806483b458ad799422eb5262,
-      type: 2}
-    cubes: []
-    location: {x: 0, y: 0, z: 0}
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - dropPrefab: {fileID: 1699859149431916, guid: 39777040806483b458ad799422eb5262,
-      type: 2}
-    cubes: []
-    location: {x: 0, y: 0, z: 0}
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  dropSpeed: 15
-  space: 2
-  height: 20
-  back: 400
-  curves: []
+  m_IsActive: 1
 --- !u!114 &881334024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,9 +1677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keycodes: 640000006600000067000000680000006a0000006b000000
   audio: {fileID: 881334027}
-  filename: music
-  spawnTimes: {fileID: 881334022}
-  laneSet: {fileID: 881334023}
+  filename: music_bumblebee
+  spawnTimes: {fileID: 621521841}
+  laneSet: {fileID: 621521844}
   TimeStart: 5
   space: 2
   Timer: 0
@@ -1775,7 +1705,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8dea98b6f988646a0a86707cad66d62c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b5d2c5016b84f4b1f812ca1f247b72a9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2200,6 +2130,9 @@ MonoBehaviour:
   text3: 'f*kk the mainstream
 
     stay underground'
+  p1: 0.24193548
+  p2: 0
+  p3: 0.112782
 --- !u!1 &1068939306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2417,28 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1572073825}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 881334024}
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 621521841}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3400,7 +3355,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1597855582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dbb6af38fea23744b225b3d35426842, type: 3}
   m_Name: 
@@ -3681,6 +3636,28 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1572073825}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 881334024}
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 621521841}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

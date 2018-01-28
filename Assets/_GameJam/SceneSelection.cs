@@ -39,6 +39,8 @@ public class SceneSelection : MonoBehaviour
     [TextArea(10, 20)]
     public string text1, text2, text3;
 
+    public float p1, p2, p3;
+
 
     public void ToGame(int i)
     {
@@ -78,6 +80,7 @@ public class SceneSelection : MonoBehaviour
         laneSet.height = 0;
         game.filename = name1;
         gameSong.clip = clip1;
+        game.spawnTimes.period = p1;
         laneSet.SelectCurve(0);
     }
 
@@ -89,6 +92,7 @@ public class SceneSelection : MonoBehaviour
         laneSet.height = 0;
         game.filename = name2;
         gameSong.clip = clip2;
+        game.spawnTimes.period = p2;
         laneSet.SelectCurve(0);
     }
 
@@ -101,6 +105,7 @@ public class SceneSelection : MonoBehaviour
         gameSong.clip = clip3;
         skyt = 0; skyd = 0; skyangle = mainmenuskyrotate;
         scrambletransform.anchoredPosition = Vector2.up * amazingscrambly;
+        game.spawnTimes.period = p3;
         StartCoroutine(FlickerAmazing());
     }
 
@@ -153,7 +158,8 @@ public class SceneSelection : MonoBehaviour
         }
     }
 
-    public void Exit(){
+    public void Exit()
+    {
         Application.Quit();
     }
 }

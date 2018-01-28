@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SpawnTimes : MonoBehaviour {
+public class SpawnTimes : MonoBehaviour
+{
 
     public bool DEBUG;
     public List<int> laneList;
@@ -19,11 +20,21 @@ public class SpawnTimes : MonoBehaviour {
         inputOrder = "";
     }
 
-	void Start () {
- 
-	}
+    void Start()
+    {
 
-    public void Read(string filename){
+    }
+
+    public void Restart()
+    {
+        inputOrder = "";
+        counter = 0;
+    }
+
+    public float period;
+
+    public void Read(string filename)
+    {
         laneList = new List<int>();
         timeList = new List<float>();
 
@@ -38,17 +49,19 @@ public class SpawnTimes : MonoBehaviour {
 
                 input = cur.Split(' ');
                 laneList.Add(int.Parse(input[0]));
-                timeList.Add(Mathf.Round(float.Parse(input[1]) / (60f / 2 / 124)) * (60f / 2 / 124));
+                timeList.Add(Mathf.Round(float.Parse(input[1]) / period) * period);
             }
         }
     }
 
-    public void Write(int lane, float time){
+    public void Write(int lane, float time)
+    {
         //Debug.Log(lane + " " + time);
         inputOrder += lane + " " + time + "\n";
     }
 
-    public void FinishWrite(string filename){
+    public void FinishWrite(string filename)
+    {
         Debug.Log("Written");
         string path = "Assets/" + filename + ".txt";
         StreamWriter writer = new StreamWriter(path, false);
@@ -56,9 +69,11 @@ public class SpawnTimes : MonoBehaviour {
         writer.Close();
     }
 
-	// Update is called once per frame
-    void Update () {
-        if(counter < timeList.Count && Time.time >= timeList[counter] && DEBUG){
+    // Update is called once per frame
+    void Update()
+    {
+        if (counter < timeList.Count && Time.time >= timeList[counter] && DEBUG)
+        {
             Debug.Log(laneList[counter]);
             counter++;
         }
