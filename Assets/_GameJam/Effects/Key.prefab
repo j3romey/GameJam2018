@@ -224,6 +224,10 @@ MonoBehaviour:
   spawnOnDeath: {fileID: 1968800198444890, guid: ca2f892c3c997df43b36736a074c926d,
     type: 2}
   spawnOnHit: {fileID: 1968800198444890, guid: ca2f892c3c997df43b36736a074c926d, type: 2}
+  Perfect: {fileID: 1968800198444890, guid: ca2f892c3c997df43b36736a074c926d, type: 2}
+  Good: {fileID: 1968800198444890, guid: cd17d38615d204157ac9574c9553a271, type: 2}
+  Ok: {fileID: 1968800198444890, guid: 26192368b06bb44e08d00b76e1036dfb, type: 2}
+  Miss: {fileID: 1968800198444890, guid: e4cbd3eca7dc54bde93766712cbe0fe7, type: 2}
   life: 6
 --- !u!114 &114278166292450996
 MonoBehaviour:

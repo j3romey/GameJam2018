@@ -13,6 +13,7 @@ public class Create : MonoBehaviour
     public SpawnTimes spawnTimes;
 
     public LaneSet laneSet;
+    public float TimeStart;
 
     public float space;
 
@@ -22,7 +23,7 @@ public class Create : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        audio.PlayDelayed(4.0f);
+        audio.PlayDelayed(TimeStart);
         Timer = 0;
     }
 
