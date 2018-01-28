@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalDrops: 0
   currentDrop: 0
-  grades: 050000000100000000000000
+  grades: 0300000001000000ffffffff
   text: {fileID: 1536819431}
   normal: My name is geoff.
   scrambled: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
